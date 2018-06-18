@@ -1,2 +1,2 @@
 # Persistence DocumentDB (MongoDB, etc...)
-Generate MongoDB script with complete best practices 
+Generate DocumentDB, MongoDB, etc.. script with complete best practices 
