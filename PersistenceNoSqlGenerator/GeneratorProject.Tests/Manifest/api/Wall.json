@@ -1,0 +1,30 @@
+{
+  "id": "Wall",
+  "description": "Wall",
+  "actions": [
+    {
+      "id": "GetMoodCards",
+      "parameters": [],
+      "type": "datalist",
+      "url": "/api/wall/list",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "MoodCards",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCards",
+            "foreignKey": "Id",
+            "type": "MoodCard",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

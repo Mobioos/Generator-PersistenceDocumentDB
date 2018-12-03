@@ -1,0 +1,194 @@
+{
+  "id": "Mood",
+  "title": "Mood",
+  "description": "Mood",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "mood_flow_card",
+      "title": "mood_flow_card",
+      "description": "mood_flow_card",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "takePic",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "confirm",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "discard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "switchMood",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getCardDetails",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "mood_contrib_card",
+      "title": "mood_contrib_card",
+      "description": "mood_contrib_card",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "getCardDetails",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "mood_reporting",
+      "title": "mood_reporting",
+      "description": "mood_reporting",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Reporting.reporting",
+          "api": ""
+        },
+        {
+          "id": "extendReportingDetails",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getMoodResults",
+          "type": "DataGet",
+          "target": "",
+          "api": "MoodCard.ReportMoodsResults"
+        }
+      ],
+      "dataModel": {
+        "id": "MoodReportingResults",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "results",
+            "foreignKey": "",
+            "type": "MoodReporting",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "mood_contrib_options",
+      "title": "mood_contrib_options",
+      "description": "mood_contrib_options",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "publish",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "deleteCard",
+          "type": "DataDelete",
+          "target": "",
+          "api": "MoodCard.DeleteMood"
+        },
+        {
+          "id": "editCard",
+          "type": "Navigation",
+          "target": "Mood.mood_contrib_createOrUpdate",
+          "api": ""
+        },
+        {
+          "id": "switchOptions",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "DeleteMoodCard",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "Id",
+            "type": "number",
+            "isKey": true,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "MoodCard.id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "mood_contrib_createOrUpdate",
+      "title": "mood_contrib_createOrUpdate",
+      "description": "mood_contrib_createOrUpdate",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "createOrUpdateMood",
+          "type": "DataCreate",
+          "target": "",
+          "api": "MoodCard.CreateMood"
+        },
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Mood.mood_contrib_card",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "UpdateMoodCard",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCard",
+            "foreignKey": "",
+            "type": "MoodCard",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

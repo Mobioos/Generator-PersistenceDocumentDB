@@ -1,0 +1,50 @@
+{
+  "id": "CollaboratorsWeather",
+  "title": "Collaborators Weather",
+  "smallTitle": "CollabWeath",
+  "description": "Collaborators Weather",
+  "platforms": [
+    "Android",
+    "Ios",
+    "WindowsPhone",
+    "Web"
+  ],
+  "version": "1.0.0.0",
+  "themes": [
+    "Light",
+    "Dark"
+  ],
+  "languages": [
+    "fr",
+    "en"
+  ],
+  "$schema": "http://www.google.com",
+  "addons": "addons.json",
+  "api": [
+    "api/Group.json",
+    "api/MoodCard.json",
+    "api/Photo.json",
+    "api/User.json",
+    "api/Contribution.json",
+    "api/Flow.json",
+    "api/Wall.json"
+  ],
+  "concerns": [
+    "concerns/Home.json",
+    "concerns/SignIn.json",
+    "concerns/Menu.json",
+    "concerns/Reporting.json",
+    "concerns/Account.json",
+    "concerns/Alerts.json",
+    "concerns/ManageGroups.json",
+    "concerns/PhotoLibrary.json",
+    "concerns/Mood.json"
+  ],
+  "configurations": [
+    {
+      "type": "dev",
+      "Path": "configurations\\configuration.dev.json"
+    }
+  ],
+  "data": "data.json"
+}

@@ -1,0 +1,381 @@
+{
+  "entities": [
+    {
+      "id": "Identifier",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Id",
+          "type": "number",
+          "isKey": true,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Group",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "GroupDepartement",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Region",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreationDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreatedBy",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "Users",
+          "foreignKey": "UserId",
+          "type": "UserProfile",
+          "isCollection": true,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Photo",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Url",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "MoodChoice",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Choice",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Card",
+      "extends": "Identifier",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "PublicationDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreatedBy",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "MoodCard",
+      "extends": "Card",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [],
+      "references": [
+        {
+          "id": "Photo",
+          "foreignKey": "id",
+          "type": "Photo",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodLevel",
+          "foreignKey": "Id",
+          "type": "MoodLevel",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Answer",
+      "extends": "Identifier",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "AnswerDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "AnsweredBy",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "MoodAnswer",
+      "extends": "Answer",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [],
+      "references": [
+        {
+          "id": "MoodCard",
+          "foreignKey": "Id",
+          "type": "MoodCard",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodChoice",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "MoodReporting",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Results",
+          "type": "number",
+          "isKey": false,
+          "isCollection": true,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "MoodCard",
+          "foreignKey": "Id",
+          "type": "MoodCard",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "Choices",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": true,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "MoodLevel",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Text",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Icon",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Level",
+          "type": "number",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "UserProfile",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "UserId",
+          "type": "string",
+          "isKey": true,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Job",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Departement",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Region",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Country",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    }
+  ]
+}

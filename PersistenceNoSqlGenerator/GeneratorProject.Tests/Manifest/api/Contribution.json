@@ -1,0 +1,35 @@
+{
+  "id": "Contribution",
+  "description": "Contribution",
+  "actions": [
+    {
+      "id": "getContributions",
+      "parameters": [
+        {
+          "id": "userId",
+          "type": "number"
+        }
+      ],
+      "type": "datalist",
+      "url": "/api/contribution/list",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Cards",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCards",
+            "foreignKey": "Id",
+            "type": "MoodCard",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

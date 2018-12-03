@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--/-:cnd -->
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mobioos.Foundation.Jade" Version="1.0.0" />
+    <PackageReference Include="Mobioos.Foundation.Prompt" Version="1.0.2" />
+    <PackageReference Include="Mobioos.Foundation.Prompt.Infrastructure" Version="1.0.1" />
+    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.2" />
+    <PackageReference Include="Mobioos.Scaffold.BaseInfrastructure" Version="1.0.2" />
+    <PackageReference Include="WorkflowCore" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>System.Core</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Platforms\Backend\PersistenceNoSql\Base\Templates\Include.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <CustomToolNamespace>GeneratorProject.Platforms.Frontend.Example</CustomToolNamespace>
+      <LastGenOutput>Include.cs</LastGenOutput>
+    </None>
+    <None Update="Platforms\Backend\PersistenceNoSql\MongoDB\Templates\MongoDBTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MongoDBTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>GeneratorProject.Platforms.Backend.PersistenceNoSql</CustomToolNamespace>
+    </None>
+    <None Update="Platforms\Backend\PersistenceNoSql\MongoDB\Templates\MongooseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MongooseTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>GeneratorProject.Platforms.Backend.PersistenceNoSql</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Platforms\Backend\PersistenceNoSql\Base\Templates\Include.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Include.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Platforms\Backend\PersistenceNoSql\MongoDB\Templates\MongoDBTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MongoDBTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Platforms\Backend\PersistenceNoSql\MongoDB\Templates\MongooseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MongooseTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,88 @@
+{
+  "id": "Photo",
+  "description": "Photo",
+  "actions": [
+    {
+      "id": "GetPhoto",
+      "parameters": [
+        {
+          "id": "photoId",
+          "type": "number"
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/photo/get",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Photo",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "photo",
+            "foreignKey": "",
+            "type": "Photo",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "CreatePhoto",
+      "parameters": [
+        {
+          "id": "photo",
+          "type": "Photo",
+          "dataModel": {
+            "id": "Photo",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [],
+            "references": [
+              {
+                "id": "photo",
+                "foreignKey": "",
+                "type": "Photo",
+                "isCollection": false,
+                "isRequired": false
+              }
+            ],
+            "values": []
+          }
+        }
+      ],
+      "type": "datacreate",
+      "url": "/api/photo/create",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "ListPhotos",
+      "parameters": [],
+      "type": "datalist",
+      "url": "/api/photo/list",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Photos",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "photos",
+            "foreignKey": "id",
+            "type": "Photo",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

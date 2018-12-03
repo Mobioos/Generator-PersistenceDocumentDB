@@ -1,0 +1,29 @@
+{
+  "id": "Reporting",
+  "title": "Reporting",
+  "description": "Reporting",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "reporting",
+      "title": "reporting",
+      "description": "reporting",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toMoodReporting",
+          "type": "Navigation",
+          "target": "Mood.mood_reporting",
+          "api": ""
+        },
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Menu.menu",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

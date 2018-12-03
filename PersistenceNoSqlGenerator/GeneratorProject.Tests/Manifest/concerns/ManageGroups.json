@@ -1,0 +1,324 @@
+{
+  "id": "ManageGroups",
+  "title": "ManageGroups",
+  "description": "ManageGroups",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "group_list",
+      "title": "group_list",
+      "description": "group_list",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "getGroups",
+          "type": "DataList",
+          "target": "",
+          "api": "Group.ListGroup"
+        }
+      ],
+      "dataModel": {
+        "id": "Groups",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "groups",
+            "foreignKey": "id",
+            "type": "Group",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "group_details",
+      "title": "group_details",
+      "description": "group_details",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "ManageGroups.group_details",
+          "api": ""
+        },
+        {
+          "id": "toGroupAddCollab",
+          "type": "Navigation",
+          "target": "ManageGroups.group_add_collaborator",
+          "api": ""
+        },
+        {
+          "id": "switchIcon",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "updateGroup",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "Group.EditGroup"
+        },
+        {
+          "id": "extendDetails",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "CreateGroup",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "groupDepartement",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.GroupDepartement"
+          },
+          {
+            "id": "region",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Region"
+          },
+          {
+            "id": "creationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.CreationDate"
+          },
+          {
+            "id": "createdBy",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.CreatedBy"
+          }
+        ],
+        "references": [
+          {
+            "id": "users",
+            "foreignKey": "UserId",
+            "type": "UserProfile",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "group_create",
+      "title": "group_create",
+      "description": "group_create",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "ManageGroups.group_list",
+          "api": ""
+        },
+        {
+          "id": "toGroupAddCollab",
+          "type": "Navigation",
+          "target": "ManageGroups.group_add_collaborator",
+          "api": ""
+        },
+        {
+          "id": "createGroup",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Group.CreateGroup"
+        }
+      ],
+      "dataModel": {
+        "id": "CreateGroup",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "groupDepartement",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.GroupDepartement"
+          },
+          {
+            "id": "region",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Region"
+          },
+          {
+            "id": "creationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.CreationDate"
+          },
+          {
+            "id": "createdBy",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.CreatedBy"
+          }
+        ],
+        "references": [
+          {
+            "id": "users",
+            "foreignKey": "UserId",
+            "type": "UserProfile",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "group_add_collaborator",
+      "title": "group_add_collaborator",
+      "description": "group_add_collaborator",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "returnToUpdate",
+          "type": "Navigation",
+          "target": "ManageGroups.group_create",
+          "api": ""
+        },
+        {
+          "id": "returnToCreate",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "sendList",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "filter",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "switchIcon",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getCollaborators",
+          "type": "DataList",
+          "target": "",
+          "api": "Group.GroupUsers"
+        }
+      ],
+      "dataModel": {
+        "id": "Users",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "users",
+            "type": "number",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "manage_group_page",
+      "title": "manage_group_page",
+      "description": "manage_group_page",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Menu.profile_menu",
+          "api": ""
+        },
+        {
+          "id": "toCreateGroup",
+          "type": "Navigation",
+          "target": "ManageGroups.group_create",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

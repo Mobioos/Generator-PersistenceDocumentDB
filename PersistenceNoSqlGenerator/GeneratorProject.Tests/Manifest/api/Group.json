@@ -1,0 +1,242 @@
+{
+  "id": "Group",
+  "description": "Group",
+  "actions": [
+    {
+      "id": "GetGroup",
+      "parameters": [
+        {
+          "id": "idGroup",
+          "type": "number"
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/group/get",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Group",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "group",
+            "foreignKey": "",
+            "type": "Group",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "CreateGroup",
+      "parameters": [
+        {
+          "id": "group",
+          "type": "CreateGroup",
+          "dataModel": {
+            "id": "CreateGroup",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [
+              {
+                "id": "name",
+                "type": "string",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Group.Name"
+              },
+              {
+                "id": "groupDepartement",
+                "type": "string",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Group.GroupDepartement"
+              },
+              {
+                "id": "region",
+                "type": "string",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Group.Region"
+              },
+              {
+                "id": "creationDate",
+                "type": "date",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Group.CreationDate"
+              },
+              {
+                "id": "createdBy",
+                "type": "string",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Group.CreatedBy"
+              }
+            ],
+            "references": [
+              {
+                "id": "users",
+                "foreignKey": "UserId",
+                "type": "UserProfile",
+                "isCollection": true,
+                "isRequired": false
+              }
+            ],
+            "values": []
+          }
+        }
+      ],
+      "type": "datacreate",
+      "url": "/api/group/create",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "EditGroup",
+      "parameters": [
+        {
+          "id": "group",
+          "type": "Group",
+          "dataModel": {
+            "id": "Group",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [],
+            "references": [
+              {
+                "id": "group",
+                "foreignKey": "",
+                "type": "Group",
+                "isCollection": false,
+                "isRequired": false
+              }
+            ],
+            "values": []
+          }
+        }
+      ],
+      "type": "dataupdate",
+      "url": "/api/group/edit",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "DeleteGroup",
+      "parameters": [
+        {
+          "id": "idGroup",
+          "type": "number"
+        }
+      ],
+      "type": "datadelete",
+      "url": "/api/group/delete",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "ListGroup",
+      "parameters": [],
+      "type": "datalist",
+      "url": "/api/group/list",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Groups",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "groups",
+            "foreignKey": "id",
+            "type": "Group",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "GroupUsers",
+      "parameters": [
+        {
+          "id": "idGroup",
+          "type": "number"
+        }
+      ],
+      "type": "datalist",
+      "url": "/api/group/listUsers",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Users",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "users",
+            "type": "number",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "ListGroupsByUser",
+      "parameters": [
+        {
+          "id": "idUser",
+          "type": "number"
+        }
+      ],
+      "type": "datalist",
+      "url": "/api/group/listGroupsByUserId",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "Groups",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "groups",
+            "foreignKey": "id",
+            "type": "Group",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

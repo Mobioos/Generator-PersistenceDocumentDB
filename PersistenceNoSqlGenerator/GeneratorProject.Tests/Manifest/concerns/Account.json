@@ -1,0 +1,210 @@
+{
+  "id": "Account",
+  "title": "Account",
+  "description": "Account",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "details",
+      "title": "account_details",
+      "description": "account_details",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toAccountEdit",
+          "type": "Navigation",
+          "target": "Account.edit",
+          "api": ""
+        },
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Menu.profile_menu",
+          "api": ""
+        },
+        {
+          "id": "getAccountDetails",
+          "type": "DataGet",
+          "target": "",
+          "api": "User.GetUser"
+        }
+      ],
+      "dataModel": {
+        "id": "User",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "firstname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "lastname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "facebookId",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "pictureUrl",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "Job",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Job"
+          },
+          {
+            "id": "Departement",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Departement"
+          },
+          {
+            "id": "Country",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Country"
+          },
+          {
+            "id": "Region",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Region"
+          },
+          {
+            "id": "UserId",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.UserId"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "edit",
+      "title": "account_edit",
+      "description": "account_edit",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Account.details",
+          "api": ""
+        },
+        {
+          "id": "toAccountDetails",
+          "type": "Navigation",
+          "target": "Account.details",
+          "api": ""
+        },
+        {
+          "id": "updateAccount",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "User.EditUser"
+        }
+      ],
+      "dataModel": {
+        "id": "EditUser",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "firstname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "lastname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "facebookId",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "pictureUrl",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #>
+<#var _entityInfo = (EntityInfo)Model;#>
+db.createCollection("<#=TextConverter.CamelCase(_entityInfo.Id)#>", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+<#
+    if(_entityInfo.Properties!=null && _entityInfo.Properties.Count>0)
+    {
+#>
+            required:[
+<#
+        int count = _entityInfo.Properties.Count() -1;
+        int counter = 0;
+        foreach(var property in _entityInfo.Properties)
+        {
+            if(property.IsRequired)
+            {
+                if(count == counter)
+            {
+#>
+                "<#=TextConverter.CamelCase(property.Id)#>"
+<#
+                }else{
+#>
+                "<#=TextConverter.CamelCase(property.Id)#>",
+<#
+                }
+            }
+                     counter++;
+        }
+#>
+            ],
+<#
+    }
+#>
+<#
+    if(_entityInfo.Properties!=null && _entityInfo.Properties.Count>0)
+    {
+#>
+            properties:{
+<#
+        int count = _entityInfo.Properties.Count() -1;
+        int counter = 0;
+        foreach(var property in _entityInfo.Properties)
+        {
+#>
+<#var propertyType = GetType(property.Type);#>
+                <#=TextConverter.CamelCase(property.Id)#>: {
+                    bsonType: "<#=propertyType#>",
+<#
+                if(property.Minimum !=null && property.Maximum !=null)
+                {
+                    if(propertyType == "int")
+                    {
+#>
+                    minimum: <#=property.Minimum#>,
+                    maximum: <#=property.Maximum#>
+<#
+                    }
+                }
+                if(count == counter)
+                {
+#>
+                }
+<#
+              }else{
+#>
+                },
+<#
+                }
+                     counter++;
+        }
+#>
+            }
+<#
+    }
+#>
+        }
+    }
+})

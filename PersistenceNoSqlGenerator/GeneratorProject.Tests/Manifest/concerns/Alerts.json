@@ -1,0 +1,29 @@
+{
+  "id": "Alerts",
+  "title": "Alerts",
+  "description": "Alerts",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "preferences",
+      "title": "alerts",
+      "description": "alerts",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "return",
+          "type": "Navigation",
+          "target": "Menu.profile_menu",
+          "api": ""
+        },
+        {
+          "id": "moodAlertsOnOff",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

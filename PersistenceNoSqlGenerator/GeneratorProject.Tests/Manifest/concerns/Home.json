@@ -1,0 +1,182 @@
+{
+  "id": "Home",
+  "title": "Home",
+  "description": "Home",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "flow",
+      "title": "flow",
+      "description": "flow",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toNextCard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "toPreviousCard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getCards",
+          "type": "DataList",
+          "target": "",
+          "api": "Flow.GetCards"
+        },
+        {
+          "id": "toTheWall",
+          "type": "Navigation",
+          "target": "Home.wall",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "Cards",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCards",
+            "foreignKey": "Id",
+            "type": "MoodCard",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "contribution",
+      "title": "contribution",
+      "description": "contribution",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toNextCard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "toPreviousCard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getContribCards",
+          "type": "DataList",
+          "target": "",
+          "api": "Contribution.getContributions"
+        }
+      ],
+      "dataModel": {
+        "id": "Cards",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCards",
+            "foreignKey": "Id",
+            "type": "MoodCard",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "home",
+      "title": "home",
+      "description": "home",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toMenu",
+          "type": "Navigation",
+          "target": "Menu.menu",
+          "api": ""
+        },
+        {
+          "id": "switchView",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "wall",
+      "title": "wall",
+      "description": "wall",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toFlow",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "filterByDate",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "filterByMood",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "filterByGroup",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "filterByDepartement",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getMoods",
+          "type": "DataList",
+          "target": "",
+          "api": "Wall.GetMoodCards"
+        }
+      ],
+      "dataModel": {
+        "id": "MoodCards",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "moodCards",
+            "foreignKey": "Id",
+            "type": "MoodCard",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}
