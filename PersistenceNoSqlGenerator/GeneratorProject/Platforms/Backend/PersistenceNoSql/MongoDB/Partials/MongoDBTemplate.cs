@@ -11,29 +11,7 @@ namespace GeneratorProject.Platforms.Backend.PersistenceNoSql
         {
          _modelSuffix = modelSuffix;
         }
-
-        private string GetType(string type)
-        {
-            string returnType = "";
-            switch (type.ToLower())
-            {
-                case "number":
-                case "integer":
-                    returnType = "int";
-                    break;
-                case "string":
-                    returnType = "string";
-                    break;
-                case "date":
-                    returnType = "date";
-                    break;
-                default:
-                    returnType = type;
-                    break;
-            }
-            return returnType;
-        }
-
+        
         public override string OutputPath => "src\\mongoDB\\";
     }
 }

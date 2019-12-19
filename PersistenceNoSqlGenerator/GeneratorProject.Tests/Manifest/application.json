@@ -1,13 +1,11 @@
 {
-  "id": "CollaboratorsWeather",
-  "title": "Collaborators Weather",
-  "smallTitle": "CollabWeath",
-  "description": "Collaborators Weather",
+  "id": "Hive",
+  "title": "Hive",
+  "smallTitle": "Hive",
+  "description": "Hive application, Open Source POC version",
   "platforms": [
     "Android",
-    "Ios",
-    "WindowsPhone",
-    "Web"
+    "IOS"
   ],
   "version": "1.0.0.0",
   "themes": [
@@ -15,30 +13,32 @@
     "Dark"
   ],
   "languages": [
-    "fr",
-    "en"
+    "en",
+    "fr"
   ],
-  "$schema": "http://www.google.com",
+  "$schema": "https://meteometer.",
   "addons": "addons.json",
   "api": [
-    "api/Group.json",
-    "api/MoodCard.json",
-    "api/Photo.json",
-    "api/User.json",
-    "api/Contribution.json",
+    "api/Answer.json",
     "api/Flow.json",
-    "api/Wall.json"
+    "api/Group.json",
+    "api/Highlights.json",
+    "api/Idea.json",
+    "api/Picture.json",
+    "api/Post.json",
+    "api/User.json"
   ],
   "concerns": [
-    "concerns/Home.json",
-    "concerns/SignIn.json",
-    "concerns/Menu.json",
+    "concerns/Idea.json",
     "concerns/Reporting.json",
     "concerns/Account.json",
-    "concerns/Alerts.json",
     "concerns/ManageGroups.json",
-    "concerns/PhotoLibrary.json",
-    "concerns/Mood.json"
+    "concerns/Settings.json",
+    "concerns/Flow.json",
+    "concerns/Highlights.json",
+    "concerns/Posts.json",
+    "concerns/Login.json",
+    "concerns/Tabs.json"
   ],
   "configurations": [
     {

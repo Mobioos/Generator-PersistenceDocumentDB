@@ -7,7 +7,7 @@
       "properties": [
         {
           "id": "Id",
-          "type": "number",
+          "type": "integer",
           "isKey": true,
           "isCollection": false,
           "isRequired": false,
@@ -20,43 +20,13 @@
       "values": []
     },
     {
-      "id": "Group",
+      "id": "Card",
       "extends": "Identifier",
       "isAbstract": false,
       "isEnum": false,
       "properties": [
         {
-          "id": "Name",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": true,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "GroupDepartement",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": true,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "Region",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "CreationDate",
+          "id": "PublicationDate",
           "type": "date",
           "isKey": false,
           "isCollection": false,
@@ -66,8 +36,58 @@
           "modelProperty": ""
         },
         {
-          "id": "CreatedBy",
+          "id": "Content",
           "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Type",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "EndDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreatedById",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "PictureId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "LinkedCardId",
+          "type": "integer",
           "isKey": false,
           "isCollection": false,
           "isRequired": false,
@@ -78,9 +98,23 @@
       ],
       "references": [
         {
-          "id": "Users",
-          "foreignKey": "UserId",
+          "id": "CreatedBy",
+          "foreignKey": "Id",
           "type": "UserProfile",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "Picture",
+          "foreignKey": "Id",
+          "type": "Picture",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "Choices",
+          "foreignKey": "Id",
+          "type": "Choice",
           "isCollection": true,
           "isRequired": false
         }
@@ -88,14 +122,24 @@
       "values": []
     },
     {
-      "id": "Photo",
-      "extends": "Identifier",
+      "id": "Reporting",
+      "extends": "Card",
       "isAbstract": false,
       "isEnum": false,
       "properties": [
         {
-          "id": "Url",
-          "type": "string",
+          "id": "Views",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Answers",
+          "type": "integer",
           "isKey": false,
           "isCollection": false,
           "isRequired": false,
@@ -106,9 +150,73 @@
       ],
       "references": [
         {
-          "id": "MoodChoice",
+          "id": "Results",
+          "foreignKey": "Id",
+          "type": "Result",
+          "isCollection": true,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Idea",
+      "extends": "Card",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Result",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Value",
+          "type": "number",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ChoiceId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ReportingId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": "Reporting.Id"
+        }
+      ],
+      "references": [
+        {
+          "id": "Choice",
           "foreignKey": "Id",
           "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "Reporting",
+          "foreignKey": "Id",
+          "type": "Reporting",
           "isCollection": false,
           "isRequired": false
         }
@@ -136,63 +244,9 @@
       "values": []
     },
     {
-      "id": "Card",
-      "extends": "Identifier",
-      "isAbstract": true,
-      "isEnum": false,
-      "properties": [
-        {
-          "id": "PublicationDate",
-          "type": "date",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "CreatedBy",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        }
-      ],
-      "references": [],
-      "values": []
-    },
-    {
-      "id": "MoodCard",
-      "extends": "Card",
-      "isAbstract": false,
-      "isEnum": false,
-      "properties": [],
-      "references": [
-        {
-          "id": "Photo",
-          "foreignKey": "id",
-          "type": "Photo",
-          "isCollection": false,
-          "isRequired": false
-        },
-        {
-          "id": "MoodLevel",
-          "foreignKey": "Id",
-          "type": "MoodLevel",
-          "isCollection": false,
-          "isRequired": false
-        }
-      ],
-      "values": []
-    },
-    {
       "id": "Answer",
       "extends": "Identifier",
-      "isAbstract": true,
+      "isAbstract": false,
       "isEnum": false,
       "properties": [
         {
@@ -206,127 +260,71 @@
           "modelProperty": ""
         },
         {
+          "id": "AnsweredById",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CardId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ChoiceId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
           "id": "AnsweredBy",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        }
-      ],
-      "references": [],
-      "values": []
-    },
-    {
-      "id": "MoodAnswer",
-      "extends": "Answer",
-      "isAbstract": false,
-      "isEnum": false,
-      "properties": [],
-      "references": [
-        {
-          "id": "MoodCard",
           "foreignKey": "Id",
-          "type": "MoodCard",
+          "type": "UserProfile",
           "isCollection": false,
           "isRequired": false
         },
         {
-          "id": "MoodChoice",
+          "id": "Card",
+          "foreignKey": "Id",
+          "type": "Card",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "Choice",
           "foreignKey": "Id",
           "type": "Choice",
           "isCollection": false,
           "isRequired": false
         }
       ],
-      "values": []
-    },
-    {
-      "id": "MoodReporting",
-      "extends": "Identifier",
-      "isAbstract": false,
-      "isEnum": false,
-      "properties": [
-        {
-          "id": "Results",
-          "type": "number",
-          "isKey": false,
-          "isCollection": true,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        }
-      ],
-      "references": [
-        {
-          "id": "MoodCard",
-          "foreignKey": "Id",
-          "type": "MoodCard",
-          "isCollection": false,
-          "isRequired": false
-        },
-        {
-          "id": "Choices",
-          "foreignKey": "Id",
-          "type": "Choice",
-          "isCollection": true,
-          "isRequired": false
-        }
-      ],
-      "values": []
-    },
-    {
-      "id": "MoodLevel",
-      "extends": "Identifier",
-      "isAbstract": false,
-      "isEnum": false,
-      "properties": [
-        {
-          "id": "Text",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "Icon",
-          "type": "string",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        },
-        {
-          "id": "Level",
-          "type": "number",
-          "isKey": false,
-          "isCollection": false,
-          "isRequired": false,
-          "minimum": 0,
-          "maximum": 0,
-          "modelProperty": ""
-        }
-      ],
-      "references": [],
       "values": []
     },
     {
       "id": "UserProfile",
+      "extends": "Identifier",
       "isAbstract": false,
       "isEnum": false,
       "properties": [
         {
           "id": "UserId",
           "type": "string",
-          "isKey": true,
+          "isKey": false,
           "isCollection": false,
           "isRequired": false,
           "minimum": 0,
@@ -344,7 +342,7 @@
           "modelProperty": ""
         },
         {
-          "id": "Departement",
+          "id": "Department",
           "type": "string",
           "isKey": false,
           "isCollection": false,
@@ -354,7 +352,7 @@
           "modelProperty": ""
         },
         {
-          "id": "Region",
+          "id": "City",
           "type": "string",
           "isKey": false,
           "isCollection": false,
@@ -365,6 +363,114 @@
         },
         {
           "id": "Country",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "PictureId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Group",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Department",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "City",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreationDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Country",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "CreatedById",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "CreatedBy",
+          "foreignKey": "Id",
+          "type": "UserProfile",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Picture",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "PicBase64",
           "type": "string",
           "isKey": false,
           "isCollection": false,

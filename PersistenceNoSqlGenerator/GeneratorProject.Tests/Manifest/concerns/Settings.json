@@ -1,0 +1,44 @@
+{
+  "id": "Settings",
+  "title": "Settings",
+  "description": "Settings concern",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "main",
+      "title": "Settings",
+      "description": "Settings main layout (is the parent of the notifications layout, this has been done to ease the extensivity in case of new settings)",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "checkSettings",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "title": "settings-languages",
+      "description": "Settings concern languages layout",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "changeLanguages",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "confirmChangeLanguages",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

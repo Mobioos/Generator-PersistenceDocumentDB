@@ -1,30 +1,72 @@
 {
-  "id": "Reporting",
-  "title": "Reporting",
-  "description": "Reporting concern regrouping Reporting related Layouts",
+  "id": "Flow",
+  "title": "Flow",
+  "description": "Flow concern",
   "mandatory": false,
   "layouts": [
     {
-      "id": "reportingCard",
-      "title": "Reporting Card",
-      "description": "Reporting Card to display in the Flow or in Highlight",
+      "id": "main",
+      "title": "flow-main",
+      "description": "Flow concern main layout",
       "isVisibleInMenu": false,
       "isRoot": false,
       "actions": [
         {
-          "id": "adaptClass",
+          "id": "nextCard",
           "type": "Method",
           "target": "",
           "api": ""
         },
         {
-          "id": "initialiseChart",
+          "id": "toPostsMain",
+          "type": "Navigation",
+          "target": "Posts.main",
+          "api": ""
+        },
+        {
+          "id": "getCards",
+          "type": "DataList",
+          "target": "",
+          "api": "Flow.List"
+        },
+        {
+          "id": "discard",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Answer.Discard"
+        },
+        {
+          "id": "previousCard",
           "type": "Method",
           "target": "",
           "api": ""
         },
         {
-          "id": "displayChart",
+          "id": "addView",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Flow.AddView"
+        },
+        {
+          "id": "swipeCard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "adaptCardsStack",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "destroyOldCards",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "cardAnswered",
           "type": "Method",
           "target": "",
           "api": ""

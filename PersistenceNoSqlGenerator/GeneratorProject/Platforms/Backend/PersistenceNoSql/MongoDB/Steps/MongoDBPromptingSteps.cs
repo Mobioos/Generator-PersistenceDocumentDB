@@ -20,9 +20,9 @@ namespace GeneratorProject.Platforms.Backend.PersistenceNoSql
 
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
-            var prompts = new Stack<Question>();
+            var prompts = new Queue<Question>();
 
-            prompts.Push(new Question
+            prompts.Enqueue(new Question
             {
                 Name = "ModelSuffix",
                 Message = "Enter suffix for model",

@@ -1,298 +1,153 @@
 {
   "id": "ManageGroups",
-  "title": "ManageGroups",
-  "description": "ManageGroups",
+  "title": "Manage Groups",
+  "description": "ManageGroups concern",
   "mandatory": false,
   "layouts": [
     {
-      "id": "group_list",
-      "title": "group_list",
-      "description": "group_list",
+      "id": "main",
+      "title": "manageGroups-main",
+      "description": "ManageGroups concern main layout",
       "isVisibleInMenu": false,
       "isRoot": false,
       "actions": [
+        {
+          "id": "presentOptionsLeaveGroupMenu",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
         {
           "id": "getGroups",
           "type": "DataList",
           "target": "",
-          "api": "Group.ListGroup"
-        }
-      ],
-      "dataModel": {
-        "id": "Groups",
-        "isAbstract": false,
-        "isEnum": false,
-        "properties": [],
-        "references": [
-          {
-            "id": "groups",
-            "foreignKey": "id",
-            "type": "Group",
-            "isCollection": true,
-            "isRequired": false
-          }
-        ],
-        "values": []
-      }
-    },
-    {
-      "id": "group_details",
-      "title": "group_details",
-      "description": "group_details",
-      "isVisibleInMenu": false,
-      "isRoot": false,
-      "actions": [
-        {
-          "id": "return",
-          "type": "Navigation",
-          "target": "ManageGroups.group_details",
-          "api": ""
+          "api": "Group.List"
         },
         {
-          "id": "toGroupAddCollab",
-          "type": "Navigation",
-          "target": "ManageGroups.group_add_collaborator",
-          "api": ""
-        },
-        {
-          "id": "switchIcon",
+          "id": "showCreateGroupModal",
           "type": "Method",
           "target": "",
           "api": ""
         },
         {
-          "id": "updateGroup",
+          "id": "confirmDelete",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "delete",
+          "type": "DataDelete",
+          "target": "",
+          "api": "Group.Delete"
+        },
+        {
+          "id": "showEditGroupModal",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "confirmLeave",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "leave",
           "type": "DataUpdate",
           "target": "",
-          "api": "Group.EditGroup"
+          "api": "Group.RemoveMembers"
         },
         {
-          "id": "extendDetails",
-          "type": "Method",
-          "target": "",
-          "api": ""
-        }
-      ],
-      "dataModel": {
-        "id": "CreateGroup",
-        "isAbstract": false,
-        "isEnum": false,
-        "properties": [
-          {
-            "id": "name",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.Name"
-          },
-          {
-            "id": "groupDepartement",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.GroupDepartement"
-          },
-          {
-            "id": "region",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.Region"
-          },
-          {
-            "id": "creationDate",
-            "type": "date",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.CreationDate"
-          },
-          {
-            "id": "createdBy",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.CreatedBy"
-          }
-        ],
-        "references": [
-          {
-            "id": "users",
-            "foreignKey": "UserId",
-            "type": "UserProfile",
-            "isCollection": true,
-            "isRequired": false
-          }
-        ],
-        "values": []
-      }
-    },
-    {
-      "id": "group_create",
-      "title": "group_create",
-      "description": "group_create",
-      "isVisibleInMenu": false,
-      "isRoot": false,
-      "actions": [
-        {
-          "id": "return",
+          "id": "toGroupDetails",
           "type": "Navigation",
-          "target": "ManageGroups.group_list",
+          "target": "ManageGroups.groupDetails",
           "api": ""
         },
         {
-          "id": "toGroupAddCollab",
-          "type": "Navigation",
-          "target": "ManageGroups.group_add_collaborator",
-          "api": ""
-        },
-        {
-          "id": "createGroup",
-          "type": "DataCreate",
-          "target": "",
-          "api": "Group.CreateGroup"
-        }
-      ],
-      "dataModel": {
-        "id": "CreateGroup",
-        "isAbstract": false,
-        "isEnum": false,
-        "properties": [
-          {
-            "id": "name",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.Name"
-          },
-          {
-            "id": "groupDepartement",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.GroupDepartement"
-          },
-          {
-            "id": "region",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.Region"
-          },
-          {
-            "id": "creationDate",
-            "type": "date",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.CreationDate"
-          },
-          {
-            "id": "createdBy",
-            "type": "string",
-            "isKey": false,
-            "isCollection": false,
-            "isRequired": false,
-            "minimum": 0,
-            "maximum": 0,
-            "modelProperty": "Group.CreatedBy"
-          }
-        ],
-        "references": [
-          {
-            "id": "users",
-            "foreignKey": "UserId",
-            "type": "UserProfile",
-            "isCollection": true,
-            "isRequired": false
-          }
-        ],
-        "values": []
-      }
-    },
-    {
-      "id": "group_add_collaborator",
-      "title": "group_add_collaborator",
-      "description": "group_add_collaborator",
-      "isVisibleInMenu": false,
-      "isRoot": false,
-      "actions": [
-        {
-          "id": "returnToUpdate",
-          "type": "Navigation",
-          "target": "ManageGroups.group_create",
-          "api": ""
-        },
-        {
-          "id": "returnToCreate",
+          "id": "presentOptionsDeleteGroupMenu",
           "type": "Method",
           "target": "",
           "api": ""
         },
         {
-          "id": "sendList",
-          "type": "Method",
-          "target": "",
-          "api": ""
-        },
-        {
-          "id": "filter",
-          "type": "Method",
-          "target": "",
-          "api": ""
-        },
-        {
-          "id": "switchIcon",
-          "type": "Method",
-          "target": "",
-          "api": ""
-        },
-        {
-          "id": "getCollaborators",
+          "id": "getMyGroups",
           "type": "DataList",
           "target": "",
-          "api": "Group.GroupUsers"
+          "api": "Group.ListMyGroups"
+        },
+        {
+          "id": "return",
+          "type": "Method",
+          "target": "",
+          "api": ""
         }
       ],
       "dataModel": {
-        "id": "Users",
+        "id": "Group",
         "isAbstract": false,
         "isEnum": false,
         "properties": [
           {
-            "id": "users",
-            "type": "number",
+            "id": "idGroup",
+            "type": "integer",
             "isKey": false,
-            "isCollection": true,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "numberMembers",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
             "isRequired": false,
             "minimum": 0,
             "maximum": 0,
             "modelProperty": ""
+          },
+          {
+            "id": "city",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.City"
+          },
+          {
+            "id": "country",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Country"
+          },
+          {
+            "id": "createdbyId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
           }
         ],
         "references": [],
@@ -300,25 +155,350 @@
       }
     },
     {
-      "id": "manage_group_page",
-      "title": "manage_group_page",
-      "description": "manage_group_page",
+      "id": "groupDetails",
+      "title": "Group Details",
+      "description": "Group concern group details layout (to show on click on an element of the group list)",
       "isVisibleInMenu": false,
       "isRoot": false,
       "actions": [
         {
-          "id": "return",
-          "type": "Navigation",
-          "target": "Menu.profile_menu",
+          "id": "presentOptionsMenu",
+          "type": "Method",
+          "target": "",
           "api": ""
         },
         {
-          "id": "toCreateGroup",
-          "type": "Navigation",
-          "target": "ManageGroups.group_create",
+          "id": "getMembers",
+          "type": "DataList",
+          "target": "",
+          "api": "Group.GetMembers"
+        },
+        {
+          "id": "removeMember",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "Group.RemoveMembers"
+        },
+        {
+          "id": "confirmRemove",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "showAddMemberModal",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "return",
+          "type": "Method",
+          "target": "",
           "api": ""
         }
-      ]
+      ],
+      "dataModel": {
+        "id": "Group",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "idGroup",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "numberMembers",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "city",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.City"
+          },
+          {
+            "id": "country",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Country"
+          },
+          {
+            "id": "createdbyId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "createGroupModal",
+      "title": "manageGroups-createGroup",
+      "description": "ManageGroups concern createGroup modal",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "cancel",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "save",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Group.Create"
+        }
+      ],
+      "dataModel": {
+        "id": "CreateGroup",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "city",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.City"
+          },
+          {
+            "id": "country",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Country"
+          },
+          {
+            "id": "createdbyId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "editGroupModal",
+      "title": "manageGroups-editGroup",
+      "description": "ManageGroups concern editGroup modal",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "cancel",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "saveChanges",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "Group.Update"
+        },
+        {
+          "id": "changeName",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "changeCity",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "changeCountry",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "EditGroup",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "name",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Name"
+          },
+          {
+            "id": "city",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.City"
+          },
+          {
+            "id": "country",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Country"
+          },
+          {
+            "id": "id",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "EditMembersModal",
+      "title": "manageGroups-editMembers",
+      "description": "ManageGroups concern editMembers modal",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "searchUser",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "saveChanges",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "Group.AddMembers"
+        },
+        {
+          "id": "clearSearch",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "cancel",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "updateMember",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getUsers",
+          "type": "DataList",
+          "target": "",
+          "api": "User.List"
+        }
+      ],
+      "dataModel": {
+        "id": "UpdateMembers",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "userIds",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          },
+          {
+            "id": "groupId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
     }
   ]
 }

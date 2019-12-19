@@ -1,0 +1,296 @@
+{
+  "id": "Login",
+  "title": "Login",
+  "description": "Login Concern",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "main",
+      "title": "login-main",
+      "description": "Login concern main layout",
+      "isVisibleInMenu": false,
+      "isRoot": true,
+      "actions": [
+        {
+          "id": "login",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getIdUser",
+          "type": "DataGet",
+          "target": "",
+          "api": "User.Get"
+        },
+        {
+          "id": "toForgotPassword",
+          "type": "Navigation",
+          "target": "Login.forgotPassword",
+          "api": ""
+        },
+        {
+          "id": "toRegister",
+          "type": "Navigation",
+          "target": "Login.register",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "SignIn",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "email",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "password",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "forgotPassword",
+      "title": "login-forgotPassword",
+      "description": "Login concern forgotPassword layout",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "checkEmail",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "toLogin",
+          "type": "Navigation",
+          "target": "Login.main",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "Email",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "email",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "unknownMail",
+      "title": "login-unknownMail",
+      "description": "Layout to show when the checkMail method of forgotPassword layout fails",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toLogin",
+          "type": "Navigation",
+          "target": "Login.main",
+          "api": ""
+        },
+        {
+          "id": "toForgotPassword",
+          "type": "Navigation",
+          "target": "Login.forgotPassword",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "Email",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "email",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "resetPassword",
+      "title": "login-resetPassword",
+      "description": "Login concern resetPassword layout to show on the click of the password reinitialization mail",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "toLogin",
+          "type": "Navigation",
+          "target": "Login.main",
+          "api": ""
+        },
+        {
+          "id": "resetPassword",
+          "type": "DataUpdate",
+          "target": "",
+          "api": "User.ResetPassword"
+        }
+      ],
+      "dataModel": {
+        "id": "ResetPassword",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "id",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "password",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "token",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "register",
+      "title": "Register",
+      "description": "The register layout",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "createAccount",
+          "type": "DataCreate",
+          "target": "",
+          "api": "User.Register"
+        },
+        {
+          "id": "toLogin",
+          "type": "Navigation",
+          "target": "Login.main",
+          "api": ""
+        },
+        {
+          "id": "getIdUser",
+          "type": "DataGet",
+          "target": "",
+          "api": "User.Get"
+        }
+      ],
+      "dataModel": {
+        "id": "Register",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "firstname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "lastname",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "email",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "password",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "confirmPassword",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    }
+  ]
+}

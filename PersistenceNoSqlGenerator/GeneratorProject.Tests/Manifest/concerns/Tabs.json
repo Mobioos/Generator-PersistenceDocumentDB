@@ -1,0 +1,23 @@
+{
+  "id": "Tabs",
+  "title": "Tabs",
+  "description": "Tabs Concern",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "main",
+      "title": "tabs-main",
+      "description": "Tabs concern main layout",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "refresh",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

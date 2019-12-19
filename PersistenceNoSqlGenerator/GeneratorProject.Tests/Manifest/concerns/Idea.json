@@ -1,0 +1,630 @@
+{
+  "id": "Idea",
+  "title": "Idea",
+  "description": "Concern regrouping Idea related layouts",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "ideaCard",
+      "title": "Idea Card",
+      "description": "An Idea Card in the Flow",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "agree",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Answer.Create"
+        },
+        {
+          "id": "disagree",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Answer.Create"
+        },
+        {
+          "id": "adaptClass",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "Card",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "id",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.Id"
+          },
+          {
+            "id": "linkedCardId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.Id"
+          },
+          {
+            "id": "content",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.Content"
+          },
+          {
+            "id": "targetGroups",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "publicationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.PublicationDate"
+          },
+          {
+            "id": "endDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.EndDate"
+          },
+          {
+            "id": "author",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          },
+          {
+            "id": "type",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Card.Type"
+          },
+          {
+            "id": "views",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Reporting.Views"
+          },
+          {
+            "id": "answers",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Reporting.Answers"
+          },
+          {
+            "id": "picture",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Picture.PicBase64"
+          }
+        ],
+        "references": [
+          {
+            "id": "results",
+            "foreignKey": "Id",
+            "type": "Result",
+            "isCollection": true,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "createQuestion",
+      "title": "Create Question",
+      "description": "Idea and image selection layout in the Idea creation process",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "getDefaultPicture",
+          "type": "DataGet",
+          "target": "",
+          "api": "Idea.GetDefaultPicture"
+        },
+        {
+          "id": "discard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "selectImageSource",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "captureImage",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "adaptImageBoxStyle",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getStyle",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "toNextStep",
+          "type": "Navigation",
+          "target": "Idea.createSettings",
+          "api": ""
+        },
+        {
+          "id": "toPreviousStep",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "CreateIdea",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "content",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.Content"
+          },
+          {
+            "id": "publicationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.PublicationDate"
+          },
+          {
+            "id": "endDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.EndDate"
+          },
+          {
+            "id": "targetGroupsIds",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "authorId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          },
+          {
+            "id": "pictureId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Picture.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "createSettings",
+      "title": "Configure Idea",
+      "description": "publication date, end date and target group configuration layout in the Idea creation process",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "discard",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getTargetGroups",
+          "type": "DataList",
+          "target": "",
+          "api": "Group.ListTargetableGroups"
+        },
+        {
+          "id": "toPreview",
+          "type": "Navigation",
+          "target": "Idea.preview",
+          "api": ""
+        },
+        {
+          "id": "checkSettings",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "checkSelectedGroups",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "previousStep",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "CreateIdea",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "content",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.Content"
+          },
+          {
+            "id": "publicationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.PublicationDate"
+          },
+          {
+            "id": "endDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.EndDate"
+          },
+          {
+            "id": "targetGroupsIds",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "authorId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          },
+          {
+            "id": "pictureId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Picture.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "preview",
+      "title": "Idea Preview",
+      "description": "Idea preview before save layout",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "save",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Idea.Create"
+        },
+        {
+          "id": "toPreviousStep",
+          "type": "Navigation",
+          "target": "Idea.createSettings",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "CreateIdea",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "content",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.Content"
+          },
+          {
+            "id": "publicationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.PublicationDate"
+          },
+          {
+            "id": "endDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.EndDate"
+          },
+          {
+            "id": "targetGroupsIds",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "authorId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "UserProfile.Id"
+          },
+          {
+            "id": "pictureId",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Picture.Id"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "editIdeaModal",
+      "title": "idea-editIdea",
+      "description": "Idea concern editIdea modal",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "checkSelectedGroups",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getTargetableGroups",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "saveChanges",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "checkDates",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "checkInformation",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "selectImageSource",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "captureImage",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "adaptImageBoxStyle",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "getStyle",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "closeModal",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "EditableIdea",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "id",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.Id"
+          },
+          {
+            "id": "content",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.Content"
+          },
+          {
+            "id": "publicationDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.PublicationDate"
+          },
+          {
+            "id": "endDate",
+            "type": "date",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Idea.EndDate"
+          },
+          {
+            "id": "targetGroupsIds",
+            "type": "integer",
+            "isKey": false,
+            "isCollection": true,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Group.Id"
+          },
+          {
+            "id": "picture",
+            "type": "string",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": "Picture.PicBase64"
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    }
+  ]
+}

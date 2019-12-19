@@ -1,15 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!--/-:cnd -->
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Mobioos.Foundation.Jade" Version="1.0.0" />
-    <PackageReference Include="Mobioos.Foundation.Prompt" Version="1.0.2" />
-    <PackageReference Include="Mobioos.Foundation.Prompt.Infrastructure" Version="1.0.1" />
-    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.2" />
-    <PackageReference Include="Mobioos.Scaffold.BaseInfrastructure" Version="1.0.2" />
-    <PackageReference Include="WorkflowCore" Version="1.0.0" />
+    <PackageReference Include="Common.Generator.Framework" Version="1.0.0" />
+    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +21,7 @@
   <ItemGroup>
     <None Update="Platforms\Backend\PersistenceNoSql\Base\Templates\Include.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <CustomToolNamespace>GeneratorProject.Platforms.Frontend.Example</CustomToolNamespace>
+      <CustomToolNamespace>GeneratorProject.Platforms.Backend.PersistenceNoSql</CustomToolNamespace>
       <LastGenOutput>Include.cs</LastGenOutput>
     </None>
     <None Update="Platforms\Backend\PersistenceNoSql\MongoDB\Templates\MongoDBTemplate.tt">

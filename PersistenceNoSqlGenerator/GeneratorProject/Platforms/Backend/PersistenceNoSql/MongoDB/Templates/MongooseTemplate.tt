@@ -1,67 +1,45 @@
 ﻿<#@ include file="..\..\Base\Templates\Include.tt" #>
 <#var _entityInfo = (EntityInfo)Model;#>
-<#
-    var allProperties = _entityInfo.AllProperties();
-#>
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 <#
-    if(_entityInfo.References != null && _entityInfo.References.Count > 0)
-    {
-        foreach(var reference in _entityInfo.References)
+        if(_entityInfo.GetProperties() !=null && _entityInfo.GetProperties().Count() > 0)
         {
-#>
-var <#=TextConverter.PascalCase(reference.Type)#>Schema = require("<#=TextConverter.PascalCase(reference.Type)#>Model").<#=TextConverter.PascalCase(reference.Type)#>Schema;
-<#
-        }
-    }
-#>
-
-var <#=TextConverter.PascalCase(_entityInfo.Id)#>Schema = new Schema({
-<#
-    if(_entityInfo.Properties!=null && _entityInfo.Properties.Count>0)
-    {
-		var lastProperty = allProperties.Last();
-        foreach(var property in  allProperties)
-        {
-            if(property.Equals(lastProperty))
+            foreach(PropertyInfo property in _entityInfo.GetProperties())
             {
-                if(_entityInfo.References != null && _entityInfo.References.Count > 0)
+                if (property.Target != null && property.Type != null)
                 {
 #>
-    <#=TextConverter.CamelCase(property.Id)#> : <#=GetPropertyType(property.Type)#>,
-<#
-                }else{
-#>
-    <#=TextConverter.CamelCase(property.Id)#> : <#=GetPropertyType(property.Type)#>
+var <#=property.Type.ToPascalCase()#>Schema = require("<#=property.Type.ToPascalCase()#><#=_modelSuffix#>").<#=property.Type.ToPascalCase()#>Schema;
 <#
                 }
-            }else{
-#>
-    <#=TextConverter.CamelCase(property.Id)#> : <#=GetPropertyType(property.Type)#>,
-<#
             }
         }
-    }
-    if(_entityInfo.References != null && _entityInfo.References.Count > 0)
+#>
+
+var <#=_entityInfo.Id.ToPascalCase()#>Schema = new Schema({
+<#
+    if(_entityInfo.GetProperties() !=null && _entityInfo.GetProperties().Count() > 0)
     {
-        var lastReference = _entityInfo.References.Last();
-        foreach(var reference in _entityInfo.References)
-        {
-            if(reference.Equals(lastReference))
-            {
+    PropertyInfo last = _entityInfo.GetProperties().Last();
+    foreach(PropertyInfo property in _entityInfo.GetProperties())
+    {	
+	 if (property.Equals(last))
+     {
 #>
-    <#=TextConverter.CamelCase(reference.Id)#> : <#if(reference.IsCollection){#>[<#=TextConverter.PascalCase(reference.Type)#>Schema]<#} else {#><#=TextConverter.PascalCase(reference.Type)#>Schema<#}#> 
+    <#=property.Id.ToCamelCase()#> : <#if(property.IsCollection){#>[<#=Helper.GetType(property.Type)#><#if(Helper.IsModelBool(property.Type)){#>Schema<#}#>]<#} else {#><#=Helper.GetType(property.Type)#><#if(Helper.IsModelBool(property.Type)){#>Schema<#}#><#}#> 
 <#
-            }else{
+		}
+		else
+		{
 #>
-    <#=TextConverter.CamelCase(reference.Id)#> : <#if(reference.IsCollection){#>[<#=TextConverter.PascalCase(reference.Type)#>Schema]<#} else {#><#=TextConverter.PascalCase(reference.Type)#>Schema<#}#>,
+    <#=property.Id.ToCamelCase()#> : <#if(property.IsCollection){#>[<#=Helper.GetType(property.Type)#><#if(Helper.IsModelBool(property.Type)){#>Schema<#}#>]<#} else {#><#=Helper.GetType(property.Type)#><#if(Helper.IsModelBool(property.Type)){#>Schema<#}#><#}#>,
 <#
-            }
         }
-    }
+	}
+        }
 #>
 });
 
-module.exports =  mongoose.model('<#=TextConverter.PascalCase(_entityInfo.Id)#>Model', <#=TextConverter.PascalCase(_entityInfo.Id)#>Schema);
-module.exports.<#=TextConverter.PascalCase(_entityInfo.Id)#>Schema =  <#=TextConverter.PascalCase(_entityInfo.Id)#>Schema;
+module.exports =  mongoose.model('<#=_entityInfo.Id.ToPascalCase()#><#=_modelSuffix#>', <#=_entityInfo.Id.ToPascalCase()#>Schema);
+module.exports.<#=_entityInfo.Id.ToPascalCase()#>Schema =  <#=_entityInfo.Id.ToPascalCase()#>Schema;

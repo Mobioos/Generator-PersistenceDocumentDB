@@ -1,0 +1,117 @@
+{
+  "id": "Answer",
+  "description": "Answer API",
+  "actions": [
+    {
+      "id": "Create",
+      "parameters": [
+        {
+          "id": "answer",
+          "type": "Answer",
+          "dataModel": {
+            "id": "Answer",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [
+              {
+                "id": "idUser",
+                "type": "integer",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "UserProfile.Id"
+              },
+              {
+                "id": "idCard",
+                "type": "integer",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Card.Id"
+              },
+              {
+                "id": "idChoice",
+                "type": "integer",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Choice.Id"
+              }
+            ],
+            "references": [],
+            "values": []
+          }
+        }
+      ],
+      "type": "datacreate",
+      "url": "/api/answer/create",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "Discard",
+      "parameters": [
+        {
+          "id": "discard",
+          "type": "Discard",
+          "dataModel": {
+            "id": "Discard",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [
+              {
+                "id": "userProfileId",
+                "type": "integer",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "UserProfile.Id"
+              },
+              {
+                "id": "cardId",
+                "type": "integer",
+                "isKey": false,
+                "isCollection": false,
+                "isRequired": false,
+                "minimum": 0,
+                "maximum": 0,
+                "modelProperty": "Card.Id"
+              }
+            ],
+            "references": [],
+            "values": []
+          }
+        }
+      ],
+      "type": "datacreate",
+      "url": "/api/answer/discard",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    },
+    {
+      "id": "AnsweredCard",
+      "parameters": [
+        {
+          "id": "cardId",
+          "type": "integer"
+        },
+        {
+          "id": "userProfileId",
+          "type": "integer"
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/answer/answeredCard",
+      "allowAnonymous": false,
+      "allowedRoles": []
+    }
+  ]
+}

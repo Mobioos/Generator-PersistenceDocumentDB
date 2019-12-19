@@ -1,27 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!--/-:cnd -->
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Manifest\addons.json" />
-    <None Remove="Manifest\api\Contribution.json" />
-    <None Remove="Manifest\api\Flow.json" />
-    <None Remove="Manifest\api\Group.json" />
-    <None Remove="Manifest\api\MoodCard.json" />
-    <None Remove="Manifest\api\Photo.json" />
-    <None Remove="Manifest\api\User.json" />
-    <None Remove="Manifest\api\Wall.json" />
     <None Remove="Manifest\application.json" />
-    <None Remove="Manifest\concerns\Account.json" />
-    <None Remove="Manifest\concerns\Alerts.json" />
-    <None Remove="Manifest\concerns\Home.json" />
-    <None Remove="Manifest\concerns\ManageGroups.json" />
-    <None Remove="Manifest\concerns\Menu.json" />
-    <None Remove="Manifest\concerns\Mood.json" />
-    <None Remove="Manifest\concerns\PhotoLibrary.json" />
-    <None Remove="Manifest\concerns\Reporting.json" />
-    <None Remove="Manifest\concerns\SignIn.json" />
     <None Remove="Manifest\configurations\configuration.dev.json" />
     <None Remove="Manifest\data.json" />
   </ItemGroup>
@@ -29,55 +13,7 @@
     <Content Include="Manifest\addons.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Manifest\api\Contribution.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\Flow.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\Group.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\MoodCard.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\Photo.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\User.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\api\Wall.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Manifest\application.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Account.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Alerts.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Home.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\ManageGroups.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Menu.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Mood.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\PhotoLibrary.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\Reporting.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Manifest\concerns\SignIn.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Manifest\configurations\configuration.dev.json">
@@ -89,15 +25,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
-    <PackageReference Include="Mobioos.Foundation.Jade" Version="1.0.0" />
-    <PackageReference Include="Mobioos.Foundation.Prompt" Version="1.0.2" />
-    <PackageReference Include="Mobioos.Foundation.Prompt.Infrastructure" Version="1.0.1" />
-    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.2" />
-    <PackageReference Include="Mobioos.Scaffold.BaseInfrastructure" Version="1.0.2" />
-    <PackageReference Include="WorkflowCore" Version="1.0.0" />
-    <PackageReference Include="xunit" Version="2.3.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="Common.Generator.Framework" Version="1.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.5" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 

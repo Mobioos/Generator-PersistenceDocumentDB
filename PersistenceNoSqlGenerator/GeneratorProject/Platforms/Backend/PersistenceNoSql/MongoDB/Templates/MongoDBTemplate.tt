@@ -1,29 +1,31 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #>
-<#var _entityInfo = (EntityInfo)Model;#>
-db.createCollection("<#=TextConverter.CamelCase(_entityInfo.Id)#>", {
+﻿<#@ include file="..\..\Base\Templates\Include.tt"#><#var _entityInfo = (EntityInfo)Model;#>
+db.createCollection("<#=_entityInfo.Id.ToCamelCase()#>", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
 <#
-    if(_entityInfo.Properties!=null && _entityInfo.Properties.Count>0)
+    if(_entityInfo.GetProperties() !=null && _entityInfo.GetProperties().Count() > 0)
     {
+     var isRequiredList = _entityInfo.GetProperties().Where(p => p.IsRequired == true);
+      if(isRequiredList.Count() > 0)
+      {
 #>
             required:[
 <#
-        int count = _entityInfo.Properties.Count() -1;
+        int count = isRequiredList.Count() -1;
         int counter = 0;
-        foreach(var property in _entityInfo.Properties)
+        foreach(PropertyInfo property in isRequiredList)
         {
             if(property.IsRequired)
             {
                 if(count == counter)
             {
 #>
-                "<#=TextConverter.CamelCase(property.Id)#>"
+                "<#=property.Id.ToCamelCase()#>"
 <#
                 }else{
 #>
-                "<#=TextConverter.CamelCase(property.Id)#>",
+                "<#=property.Id.ToCamelCase()#>",
 <#
                 }
             }
@@ -32,24 +34,23 @@ db.createCollection("<#=TextConverter.CamelCase(_entityInfo.Id)#>", {
 #>
             ],
 <#
+            }
     }
-#>
-<#
-    if(_entityInfo.Properties!=null && _entityInfo.Properties.Count>0)
+    if(_entityInfo.GetProperties() !=null && _entityInfo.GetProperties().Count() > 0)
     {
 #>
             properties:{
 <#
-        int count = _entityInfo.Properties.Count() -1;
+        int count = _entityInfo.GetProperties().Count() -1;
         int counter = 0;
-        foreach(var property in _entityInfo.Properties)
+        foreach(PropertyInfo property in _entityInfo.GetProperties())
         {
 #>
-<#var propertyType = GetType(property.Type);#>
-                <#=TextConverter.CamelCase(property.Id)#>: {
+<#var propertyType = Helper.GetType(property.Type);#>
+                <#=property.Id.ToCamelCase()#>: {
                     bsonType: "<#=propertyType#>",
 <#
-                if(property.Minimum !=null && property.Maximum !=null)
+                if(property.Maximum > property.Minimum)
                 {
                     if(propertyType == "int")
                     {
@@ -79,3 +80,4 @@ db.createCollection("<#=TextConverter.CamelCase(_entityInfo.Id)#>", {
         }
     }
 })
+

@@ -1,9 +1,9 @@
-﻿using Mobioos.Foundation.Jade.Models;
+﻿using Common.Generator.Framework.Extensions;
+using Mobioos.Foundation.Jade.Models;
 using Mobioos.Foundation.Prompt.Infrastructure;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
 using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
-using Mobioos.Scaffold.BaseGenerators.Helpers;
 using Mobioos.Foundation.Prompt;
 using WorkflowCore.Interface;
 using WorkflowCore.Models;
@@ -54,8 +54,11 @@ namespace GeneratorProject.Platforms.Backend.PersistenceNoSql
 
                 foreach (var dataModel in smartApp.DataModel.Entities)
                 {
-                    MongoDBTemplate template = new MongoDBTemplate(dataModel, modelSuffix);
-                    _writingService.WriteFile(Path.Combine(_context.BasePath, template.OutputPath, (TextConverter.PascalCase(dataModel.Id) + modelSuffix + ".json")), template.TransformText());
+                    if (!dataModel.IsAbstract)
+                    {
+                        MongoDBTemplate template = new MongoDBTemplate(dataModel, modelSuffix);
+                        _writingService.WriteFile(Path.Combine(_context.BasePath, template.OutputPath, (dataModel.Id.ToPascalCase() + modelSuffix + ".json")), template.TransformText());
+                    }
                 }
             }
         }
